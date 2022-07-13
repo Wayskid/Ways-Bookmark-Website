@@ -12,7 +12,8 @@ const navLinks = document.querySelector(".navLinks");
 //Display drop down on Arrow click
 arrowIcon.forEach(arrow => {
     arrow.addEventListener("click", (e)=>{
-        e.target.parentElement.nextElementSibling.classList.toggle("show")
+        e.target.parentElement.nextElementSibling.classList.toggle("show");
+        e.target.classList.toggle("turnUp");
     })
 })
 

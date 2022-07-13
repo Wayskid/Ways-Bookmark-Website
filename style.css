@@ -320,6 +320,14 @@ showcase{
     align-content: center;
 }
 
+[data-cell]{
+    transition: 0.5s ease;
+}
+
+[data-cell].turnUp{
+    transform: rotate(180deg);
+}
+
 .clickToView{
     display: flex;
     align-items: center;
@@ -396,7 +404,7 @@ footer button{
         display: none;
     }
 
-    .navBar, showcase, footer>:first-child{
+    .navBar, showcase, .topFooter, .bottomFooter{
         padding: 1rem 6rem;
     }
 
