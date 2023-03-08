@@ -58,7 +58,7 @@ i{
     cursor: pointer;
 }
 
-/* Regular */
+/* MOBILE FIRST*/
 
 body{
     font-family: 'Montserrat Alternates', sans-serif;
@@ -73,8 +73,7 @@ nav{
 }
 
 .logo{
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
     align-items: center;
 }
 
@@ -146,14 +145,14 @@ showcase{
 }
 
 .sec1{
-    text-align: center;
     display: grid;
+    text-align: center;
     gap: 7rem;
 }
 
 .sec1Right{
-    grid-row: 1;
     display: grid;
+    grid-row: 1;
     grid-template-areas: "stack";
 }
 
@@ -162,16 +161,17 @@ showcase{
 }
 
 .artSec1{
-    height: 100%;
+    height: 80%;
     background-color: var(--clr-primary-400);
-    transform: translateX(1.5rem) translateY(4rem);
+    translate: 1.5rem 6rem;
     border-bottom-left-radius: 40%;
     border-top-left-radius: 40%;
     z-index: -1;
 }
 
-.webPageSec1{
+.webPageSec{
     width: 100%;
+    justify-self: right;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.468) 0px 3px 15px;
 }
@@ -208,6 +208,7 @@ showcase{
     border-bottom: 1px solid var(--clr-primary-200);
     padding-block: 1rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .featuresNav li a{
@@ -237,13 +238,17 @@ showcase{
     grid-area: stacked;
 }
 
+.sec3Left .webPageSec{
+    justify-self: left;
+}
+
 .artSec3{
-    height: 100%;
+    height: 80%;
     background-color: var(--clr-primary-400);
     border-bottom-right-radius: 40%;
     border-top-right-radius: 40%;
     z-index: -1;
-    transform: translateX(-3rem) translateY(4rem);
+    translate: -3rem 6rem;
 }
 
 .sec3Right{
@@ -253,7 +258,6 @@ showcase{
 }
 
 .moreInfo{
-    width: min(40%, 10rem);
     margin-top: 1rem;
 }
 
@@ -294,6 +298,11 @@ showcase{
     padding-block: 1rem;
 }
 
+.extensionBtn{
+    width: 90%;
+    padding-inline: 0;
+}
+
 .QandA{
     text-align: center;
     display: grid;
@@ -301,58 +310,44 @@ showcase{
     justify-items: center;
 }
 
-
 .FAQList{
-    border-block: 1px solid var(--clr-primary-200);
+    border-block: 1px solid black;
+    width: min(100%, 40rem);
     display: grid;
-    justify-items: center;
-    width: min(100%, 30rem);
 }
 
 .FAQList li{
-    border-bottom: 1px solid var(--clr-primary-200);
+    border-bottom: 1px solid;
+    color: rgb(97, 96, 96);
     padding-block: 1rem;
-    font-size: larger;
-    font-size: 14px;
-    display: grid;
-    justify-items: center;
-    width: 100%;
-    align-content: center;
 }
 
-[data-cell]{
-    transition: 0.5s ease;
-}
-
-[data-cell].turnUp{
-    transform: rotate(180deg);
-}
-
-.clickToView{
+.FAQList li label{
+    padding-block: 0.5rem;
+    font-weight: bold;
     display: flex;
-    align-items: center;
-    width: 100%;
     justify-content: space-between;
-    gap: 1rem;
+    cursor: pointer;
+}
+
+.FAQList input[type="radio"]{
+    display: none;
 }
 
 .viewClicked{
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
     text-align: left;
-    clip-path: inset(0 0 100% 0);
-    height: 0;
 }
 
-.viewClicked.show{
-    clip-path: inset(0 0 0 0);
-    height: 100%;
-    margin-top: 1rem;
+.FAQList input[type="radio"]:checked ~ .viewClicked{
+    max-height: 400px;
+} 
 
-}
-
-.FAQList p{
-    color: rgb(97, 96, 96);
-    font-weight: bold;
-}
+.FAQList input[type="radio"]:checked ~ label span{
+    rotate: 180deg;
+} 
 
 .FAQList>:last-child{
     border-bottom: none;
@@ -387,11 +382,6 @@ footer button{
     justify-content: center;
 }
 
-.fLogo{
-    justify-items: center;
-    width: min-content;
-}
-
 .socials{
     display: flex;
     gap: 1rem;
@@ -404,7 +394,11 @@ footer button{
         display: none;
     }
 
-    .navBar, showcase, .topFooter, .bottomFooter{
+    .navBar{
+        padding: 1rem 6rem;
+    }
+
+    showcase, .topFooter, .bottomFooter{
         padding: 1rem 6rem;
     }
 
@@ -433,18 +427,14 @@ footer button{
         border-radius: 5px;
     }
 
-    .sec1{
-        display: flex;
+    .sec1, .sec3{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 3rem;
-        margin-top: 3rem;
     }
 
-    .sec1Left, .sec3Right{
-        width: 80%;
-        gap: 1rem;
-        grid-template-rows:repeat(3, min-content);
+    .sec1Left{
         text-align: left;
-        justify-items: left;
         align-content: center;
     }
 
@@ -453,11 +443,16 @@ footer button{
     }
 
     .sec1Right{
-        width: 100%;
+        grid-column: 2;
     }
 
     .artSec1{
-        transform: translateX(6rem) translateY(4rem);
+        translate: 6rem 4rem ;
+    }
+
+    .webPageSec{
+        width: 90%;
+        height: 80%;
     }
 
     .sec2{
@@ -471,25 +466,21 @@ footer button{
     .featuresNav{
         border-top: none;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 75%;
     }
 
     .featuresNav>*{
         border: none;
     }
-    
-    .sec3{
-        display: flex;
-        gap: 3rem;
-    }
 
-    .sec3Left{
-        width: 100%;
+    .sec3Right{
+        display: grid;
+        align-content: center;
     }
 
     .artSec3{
-        transform: translateX(-6rem) translateY(4rem);
+        translate: -6rem 4rem;
     }
 
     .sec4{
@@ -504,7 +495,6 @@ footer button{
     .sec5{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        width: min(120%, 60rem);
         gap: 2rem;
     }
 

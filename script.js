@@ -1,4 +1,3 @@
-const arrowIcon = document.querySelectorAll("[data-cell]");
 const featuresNavs = document.querySelectorAll(".featuresNav > li");
 const webPageSec1 = document.querySelector(".webPageSec1");
 const sec3RightH1 = document.querySelector(".sec3Right > h1");
@@ -8,14 +7,6 @@ const burger = document.querySelector(".burger");
 const bars = document.querySelectorAll(".bar");
 const navLinks = document.querySelector(".navLinks");
 
-
-//Display drop down on Arrow click
-arrowIcon.forEach(arrow => {
-    arrow.addEventListener("click", (e)=>{
-        e.target.parentElement.nextElementSibling.classList.toggle("show");
-        e.target.classList.toggle("turnUp");
-    })
-})
 
 
 //Change active border bottom
