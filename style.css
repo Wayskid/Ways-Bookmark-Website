@@ -2,14 +2,14 @@
 
 /*Globals*/
 
-/* :root{
+:root{
     --clr-neutral-100: #ffffff;
     --clr-primary-200: rgb(159, 157, 157);
     --clr-primary-300: #0d094d;
     --clr-primary-400: #c71019;
     --clr-primary-800: #801116;
     --clr-neutral-900: #000000;
-} */
+}
 
 *{
     margin: 0;
